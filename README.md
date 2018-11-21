@@ -108,17 +108,13 @@ Ideal-image-loader assumes you are using Node 6.9.0, Webpack 4.0.0 and File-load
 
 ## Contributors
 
+Thanks goes to these people ([emoji key][emojis]):
+
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
 | [<img src="https://avatars1.githubusercontent.com/u/15089053?v=4" width="100px;"/><br /><sub><b>Adrien HARNAY</b></sub>](https://adrien.harnay.me)<br />[📝](#blog-adrienharnay "Blogposts") [💻](https://github.com/adrienharnay/@brigad/ideal-image-loader/commits?author=adrienharnay "Code") [🎨](#design-adrienharnay "Design") [📖](https://github.com/adrienharnay/@brigad/ideal-image-loader/commits?author=adrienharnay "Documentation") [💡](#example-adrienharnay "Examples") [🤔](#ideas-adrienharnay "Ideas, Planning, & Feedback") |
 | :---: |
-<!-- ALL-CONTRIBUTORS-LIST:END -->
 
-Thanks goes to these people ([emoji key][emojis]):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-
-<!-- prettier-ignore -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.

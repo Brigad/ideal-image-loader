@@ -1,0 +1,74 @@
+{
+  "name": "@brigad/ideal-image-loader",
+  "version": "1.0.0",
+  "description": "A loader for webpack which handles 2x/3x/webp and works well with gatsby-image and react-ideal-image",
+  "engines": {
+    "node": ">= 6.9.0"
+  },
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Brigad/ideal-image-loader.git"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "gatsby",
+    "image",
+    "webpack",
+    "loader"
+  ],
+  "author": "Adrien HARNAY <adrien@brigad.co> (https://github.com/adrienharnay)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Brigad/ideal-image-loader/issues"
+  },
+  "homepage": "https://github.com/Brigad/ideal-image-loader#readme",
+  "npmName": "@brigad/ideal-image-loader",
+  "npmFileMap": [
+    {
+      "basePath": "/src/",
+      "files": [
+        "*.js"
+      ]
+    }
+  ],
+  "scripts": {
+    "modules:clean": "rimraf node_modules",
+    "lint": "eslint src",
+    "ci": "yarn lint",
+    "ci:publish": "yarn semantic-release",
+    "prettify": "prettier-eslint --write \"./src/**/*.js\"",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
+  },
+  "dependencies": {
+    "fast-stable-stringify": "1.0.0",
+    "imagemin": "6.0.0",
+    "imagemin-svgo": "7.0.0",
+    "imagemin-webp": "4.1.0",
+    "loader-utils": "1.1.0",
+    "lqip": "2.1.0",
+    "xxhashjs": "0.2.2"
+  },
+  "devDependencies": {
+    "all-contributors-cli": "5.4.0",
+    "babel-eslint": "9.0.0",
+    "eslint": "5.5.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-prettier": "3.0.1",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-react": "7.11.1",
+    "prettier-eslint-cli": "4.7.1",
+    "rimraf": "2.6.2",
+    "semantic-release": "15.9.12"
+  },
+  "peerDependencies": {
+    "file-loader": "^2.0.0",
+    "webpack": "^4.0.0"
+  }
+}
