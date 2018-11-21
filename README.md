@@ -132,13 +132,21 @@ Specifies whether a color palette should be generated under the key `palette`.
 
 ### webp
 
-Specifies whether `.webp` images should be generated under the key `webp`.
+Type: `object`, Default: `undefined`
+
+Specifies the configuration object passed to [imagemin-webp][imagemin-webp] to generate `.webp` images, under the key `webp`.
+
+`undefined` is the default configuration, `null` deactivates this feature, and any other option will be passed to imagemin-webp.
 
 ### srcset
+
+Type: `boolean`, Default: `true`
 
 Specifies whether `@2x` and `@3x` images should be resolved, and new objects `x2` and `x3` should be put alongside `x1`.
 
 ### warnOnMissingSrcset
+
+Type: `boolean`, Default: `false`
 
 Specifies whether the loader should warn when there are missing `@2x` and `@3x` images.
 
@@ -179,6 +187,7 @@ Contributions of any kind welcome!
 [github-star-badge]: https://img.shields.io/github/stars/Brigad/ideal-image-loader.svg?style=social
 [github-star]: https://github.com/Brigad/ideal-image-loader/stargazers
 [file-loader]: https://github.com/webpack-contrib/file-loader
+[imagemin-webp]: https://github.com/imagemin/imagemin-webp
 [gatsby-image]: https://www.gatsbyjs.org/packages/gatsby-image/
 [react-ideal-image]: https://github.com/stereobooster/react-ideal-image
 [emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
