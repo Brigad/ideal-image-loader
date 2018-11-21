@@ -55,17 +55,18 @@
     "xxhashjs": "0.2.2"
   },
   "devDependencies": {
-    "all-contributors-cli": "5.4.0",
-    "babel-eslint": "9.0.0",
-    "eslint": "5.5.0",
+    "@semantic-release/git": "7.0.5",
+    "all-contributors-cli": "5.4.1",
+    "babel-eslint": "10.0.1",
+    "eslint": "5.9.0",
     "eslint-config-airbnb": "17.1.0",
-    "eslint-config-prettier": "3.0.1",
+    "eslint-config-prettier": "3.3.0",
     "eslint-plugin-import": "2.14.0",
     "eslint-plugin-jsx-a11y": "6.1.2",
     "eslint-plugin-react": "7.11.1",
     "prettier-eslint-cli": "4.7.1",
     "rimraf": "2.6.2",
-    "semantic-release": "15.9.12"
+    "semantic-release": "15.12.0"
   },
   "peerDependencies": {
     "file-loader": "^2.0.0",

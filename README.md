@@ -12,6 +12,7 @@
 [![PRs Welcome][prs-badge]][prs]
 [![Code of Conduct][coc-badge]][coc]
 [![code style: prettier][prettier-badge]][prettier]
+[![semantic-release][semantic-release-badge]][semantic-release]
 [![Star on GitHub][github-star-badge]][github-star]
 
 ## Installation
@@ -134,6 +135,8 @@ Contributions of any kind welcome!
 [coc]: https://github.com/Brigad/ideal-image-loader/blob/master/CODE_OF_CONDUCT.md
 [prettier-badge]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square
 [prettier]: https://github.com/prettier/prettier
+[semantic-release-badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[semantic-release]: https://github.com/semantic-release/semantic-release
 [github-star-badge]: https://img.shields.io/github/stars/Brigad/ideal-image-loader.svg?style=social
 [github-star]: https://github.com/Brigad/ideal-image-loader/stargazers
 [file-loader]: https://github.com/webpack-contrib/file-loader
