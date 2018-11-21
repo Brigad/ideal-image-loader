@@ -144,7 +144,7 @@ Specifies whether the loader should warn when there are missing `@2x` and `@3x` 
 
 ## Peer dependencies
 
-Ideal-image-loader assumes you are using Node 6.9.0, Webpack 4.0.0 and File-loader 2.0.0.
+Ideal-image-loader assumes you are using >=Node 6.9.0, Webpack >=4.0.0 and File-loader >=2.0.0.
 
 ## Contributors
 
