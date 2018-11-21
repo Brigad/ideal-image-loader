@@ -84,9 +84,9 @@ module.exports = {
 }
 ```
 
-A fully-working component example is available [here](./examples/Image.js), feel free to copy it and to adapt it to your needs!
-
 And run `webpack` via your preferred method.
+
+A fully-working component example is available [here](./examples/Image.js), feel free to copy it and to adapt it to your needs!
 
 ## Problem
 
