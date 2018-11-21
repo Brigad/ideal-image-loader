@@ -15,7 +15,7 @@ const defaultOptions = {
   palette: false,
   webp: undefined,
   srcset: true,
-  svgoCleanUpIds: true,
+  svgoCleanUpIds: false,
   warnOnMissingSrcset: false,
 };
 

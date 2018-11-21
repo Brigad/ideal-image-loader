@@ -91,7 +91,7 @@ A fully-working component example is available [here](./examples/Image.js), feel
 
 ## Problem
 
-At Brigad, we have been looking for a solution to lazy-load images in a way that would feel good for the user and the developer. We wanted to use [gatsby-image][gatsby-image] (but without using Gatsby) or [react-ideal-image][react-ideal-image], and we needed a loader to help us load our images without manually converting all of them to Webp, and manually importing each variation.
+At Brigad, we have been looking for a solution to lazy-load images in a way that would feel good for the user and the developer. We also wanted our images to be as lightweight as possible for a given screen resolution. We tried to use [gatsby-image][gatsby-image] (but without using Gatsby) and [react-ideal-image][react-ideal-image], but we needed a loader to help us load our images without manually converting all of them to Webp, and manually importing each variation.
 
 ## Solution
 
@@ -99,9 +99,48 @@ To solve the problems listed above, `ideal-image-loader` will, _based on one imp
 
 And the cherry on the top: it works seamlessly with [gatsby-image][gatsby-image] without the need to use Gatsby, and also with [react-ideal-image][react-ideal-image]!
 
-[Browse the documentation](#api) to get started! To learn more about the problem and solution, you can also read the [release article][release-article].
+[Browse the documentation](#options) to get started! To learn more about the problem and solution, you can also read the [release article][release-article].
 
-## API
+## Options
+
+Sensible configuration:
+
+```js
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+
+options: {
+  name: 'images/[name].[hash].[ext]',
+  base64: IS_PRODUCTION,
+  webp: IS_PRODUCTION ? undefined : false,
+  warnOnMissingSrcset: !IS_PRODUCTION,
+},
+```
+
+This loader forwards all additional options (such as `name`) to [file-loader][file-loader].
+
+### base64
+
+Type: `boolean`, Default: `true`
+
+Specifies whether a low quality image placeholder (lqip) should be generated under the key `preSrc`.
+
+### palette
+
+Type: `boolean`, Default: `false`
+
+Specifies whether a color palette should be generated under the key `palette`.
+
+### webp
+
+Specifies whether `.webp` images should be generated under the key `webp`.
+
+### srcset
+
+Specifies whether `@2x` and `@3x` images should be resolved, and new objects `x2` and `x3` should be put alongside `x1`.
+
+### warnOnMissingSrcset
+
+Specifies whether the loader should warn when there are missing `@2x` and `@3x` images.
 
 ## Peer dependencies
 
