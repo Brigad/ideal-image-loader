@@ -33,12 +33,12 @@ npm install --save @brigad/ideal-image-loader
 
 ```js
 // Will also try to resolve:
-// - './image@2x.png'
-// - './image@3x.png'
+// - ./image@2x.png
+// - ./image@3x.png
 // - and try to generate:
-// - './image.webp'
-// - './image@2x.webp'
-// - './image@3x.webp'
+// - ./image.webp
+// - ./image@2x.webp
+// - ./image@3x.webp
 import img from './image.png';
 ```
 
