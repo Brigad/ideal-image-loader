@@ -66,28 +66,57 @@ module.exports = {
 
 ```json
 // output
+// x1, x2 and x3 are different variations of the srcset (base, @2x and @3x)
+// src is the location of the image, output of file-loader (https://github.com/webpack-contrib/file-loader)
+// preSrc is a low quality placeholder, output of lqip.base64 (https://github.com/zouhir/lqip)
+// palette is a palette of dominant colors, output of lqip.palette (https://github.com/zouhir/lqip)
+// webp is the image converted to webp, if possible, output of imagemin-webp (https://github.com/imagemin/imagemin-webp)
 {
   "x1": {
-    "src": "...",
-    "preSrc": "data:...",
-    "webp": "..."
+    "src": "https://....png",
+    "preSrc": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhY...",
+    "palette": [
+      "#628792",
+      "#bed4d5",
+      "#5d4340",
+      "#ba454d",
+      "#c5dce4",
+      "#551f24"
+    ],
+    "webp": "https://....webp"
   },
   "x2": {
-    "src": "...",
-    "preSrc": "data:...",
-    "webp": "..."
+    "src": "https://....png",
+    "preSrc": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhY...",
+    "palette": [
+      "#628792",
+      "#bed4d5",
+      "#5d4340",
+      "#ba454d",
+      "#c5dce4",
+      "#551f24"
+    ],
+    "webp": "https://....webp"
   },
   "x3": {
-    "src": "...",
-    "preSrc": "data:...",
-    "webp": "..."
+    "src": "https://....png",
+    "preSrc": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhY...",
+    "palette": [
+      "#628792",
+      "#bed4d5",
+      "#5d4340",
+      "#ba454d",
+      "#c5dce4",
+      "#551f24"
+    ],
+    "webp": "https://....webp"
   }
 }
 ```
 
 And run `webpack` via your preferred method.
 
-A fully-working component example is available [here](./examples/Image.js), feel free to copy it and to adapt it to your needs!
+A fully-working component example is available [here](./examples/Image.js) (based on [gatsby-image][gatsby-image]), feel free to copy it and to adapt it to your needs!
 
 ## Problem
 
@@ -97,13 +126,13 @@ At Brigad, we have been looking for a solution to lazy-load images in a way that
 
 To solve the problems listed above, `ideal-image-loader` will, _based on one imported image_, resolve the `@2x` and `@3x` formats, and generate the `.webp` alternatives.
 
-And the cherry on the top: it works seamlessly with [gatsby-image][gatsby-image] without the need to use Gatsby, and also with [react-ideal-image][react-ideal-image]!
+And the cherry on the top: it works seamlessly with [gatsby-image][gatsby-image] without the need to use Gatsby, and also works with [react-ideal-image][react-ideal-image]!
 
-[Browse the documentation](#options) to get started! To learn more about the problem and solution, you can also read the [release article][release-article].
+Scroll down to learn more about the options! To learn more about the problem and solution, you can also read the [release article][release-article].
 
 ## Options
 
-Sensible configuration:
+Recommended configuration:
 
 ```js
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
@@ -124,31 +153,45 @@ Type: `boolean`, Default: `true`
 
 Specifies whether a low quality image placeholder (lqip) should be generated under the key `preSrc`.
 
+This option allows to show a blurred placeholder while the image is loading.
+
+For more information about the output, read [lqip][lqip]'s documentation.
+
 ### palette
 
 Type: `boolean`, Default: `false`
 
 Specifies whether a color palette should be generated under the key `palette`.
 
+This option allows to show a color palette while the image is loading.
+
+For more information about the output, read [lqip][lqip]'s documentation.
+
 ### webp
 
 Type: `object`, Default: `undefined`
 
-Specifies the configuration object passed to [imagemin-webp][imagemin-webp] to generate `.webp` images, under the key `webp`.
+Specifies the configuration object passed to [imagemin-webp][imagemin-webp] to generate `.webp` images, under the key `webp`. `undefined` is the default configuration, `null` deactivates this feature, and any other option will be passed to imagemin-webp.
 
-`undefined` is the default configuration, `null` deactivates this feature, and any other option will be passed to imagemin-webp.
+This option allows to load webp images (which are lighter than jpg and png) on browsers that support it.
+
+For more information about the options and output, read [imagemin-webp][imagemin-webp]'s documentation.
 
 ### srcset
 
 Type: `boolean`, Default: `true`
 
-Specifies whether `@2x` and `@3x` images should be resolved, and new objects `x2` and `x3` should be put alongside `x1`.
+Specifies whether `@2x` and `@3x` images should be resolved, and new properties `x2` and `x3` should be put alongside `x1`.
+
+This option allows to load the right resolution based on the user's screen.
 
 ### warnOnMissingSrcset
 
 Type: `boolean`, Default: `false`
 
 Specifies whether the loader should warn when there are missing `@2x` and `@3x` images.
+
+This option allows to make sure all your images have corresponding srcset.
 
 ## Peer dependencies
 
@@ -187,6 +230,7 @@ Contributions of any kind welcome!
 [github-star-badge]: https://img.shields.io/github/stars/Brigad/ideal-image-loader.svg?style=social
 [github-star]: https://github.com/Brigad/ideal-image-loader/stargazers
 [file-loader]: https://github.com/webpack-contrib/file-loader
+[lqip]: https://github.com/zouhir/lqip
 [imagemin-webp]: https://github.com/imagemin/imagemin-webp
 [gatsby-image]: https://www.gatsbyjs.org/packages/gatsby-image/
 [react-ideal-image]: https://github.com/stereobooster/react-ideal-image
