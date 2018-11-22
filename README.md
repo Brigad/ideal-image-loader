@@ -212,7 +212,7 @@ This project follows the [all-contributors][all-contributors] specification.
 Contributions of any kind welcome!
 
 [release-article]: https://engineering.brigad.co/
-[circle-ci-badge]: https://img.shields.io/circleci/token/75524c993d9de495223af8fa371cf086aa69793d/project/github/Brigad/ideal-image-loader/master.svg?style=flat-square&label=build
+[circle-ci-badge]: https://img.shields.io/circleci/project/github/Brigad/ideal-image-loader/master.svg?style=flat-square&label=build
 [circle-ci]: https://circleci.com/gh/Brigad/ideal-image-loader
 [version-badge]: https://img.shields.io/npm/v/@brigad/ideal-image-loader.svg?style=flat-square
 [downloads-badge]: https://img.shields.io/npm/dt/@brigad/ideal-image-loader.svg?style=flat-square
