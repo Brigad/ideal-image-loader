@@ -2,8 +2,6 @@
 
 🖼️ A loader for webpack which handles 2x/3x/webp and works well with gatsby-image and react-ideal-image
 
-[Release article][release-article] (TODO)
-
 [![CircleCI][circle-ci-badge]][circle-ci]
 [![version][version-badge]][package]
 [![downloads][downloads-badge]][package]
@@ -14,6 +12,10 @@
 [![code style: prettier][prettier-badge]][prettier]
 [![semantic-release][semantic-release-badge]][semantic-release]
 [![Star on GitHub][github-star-badge]][github-star]
+
+## [Release article][release-article] (TODO)
+
+## [Demo project][demo-project]
 
 ## Installation
 
@@ -211,6 +213,7 @@ This project follows the [all-contributors][all-contributors] specification.
 Contributions of any kind welcome!
 
 [release-article]: https://engineering.brigad.co/
+[demo-project]: https://github.com/Brigad/ssr-starter-pack
 [circle-ci-badge]: https://img.shields.io/circleci/project/github/Brigad/ideal-image-loader/master.svg?style=flat-square&label=build
 [circle-ci]: https://circleci.com/gh/Brigad/ideal-image-loader
 [version-badge]: https://img.shields.io/npm/v/@brigad/ideal-image-loader.svg?style=flat-square
