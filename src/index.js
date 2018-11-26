@@ -213,6 +213,7 @@ const processSVG = (context, contentBuffer) => {
               remove: true,
             },
           },
+          { removeViewBox: false },
         ],
       }),
     })
