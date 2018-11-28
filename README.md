@@ -13,7 +13,7 @@
 [![semantic-release][semantic-release-badge]][semantic-release]
 [![Star on GitHub][github-star-badge]][github-star]
 
-## [Release article][release-article] (TODO)
+## [Release article][release-article]
 
 ## [Demo project][demo-project]
 
@@ -207,12 +207,13 @@ Thanks goes to these people ([emoji key][emojis]):
 <!-- prettier-ignore -->
 | [<img src="https://avatars1.githubusercontent.com/u/15089053?v=4" width="100px;"/><br /><sub><b>Adrien HARNAY</b></sub>](https://adrien.harnay.me)<br />[📝](#blog-adrienharnay "Blogposts") [💻](https://github.com/adrienharnay/@brigad/ideal-image-loader/commits?author=adrienharnay "Code") [🎨](#design-adrienharnay "Design") [📖](https://github.com/adrienharnay/@brigad/ideal-image-loader/commits?author=adrienharnay "Documentation") [💡](#example-adrienharnay "Examples") [🤔](#ideas-adrienharnay "Ideas, Planning, & Feedback") | [<img src="https://avatars1.githubusercontent.com/u/6181446?v=4" width="100px;"/><br /><sub><b>Thibault Malbranche</b></sub>](https://twitter.com/titozzz)<br />[🤔](#ideas-Titozzz "Ideas, Planning, & Feedback") |
 | :---: | :---: |
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
 Contributions of any kind welcome!
 
-[release-article]: https://engineering.brigad.co/
+[release-article]: https://engineering.brigad.co/introducing-ideal-image-loader-dfa04bcc1dd5
 [demo-project]: https://github.com/Brigad/ssr-starter-pack
 [circle-ci-badge]: https://img.shields.io/circleci/project/github/Brigad/ideal-image-loader/master.svg?style=flat-square&label=build
 [circle-ci]: https://circleci.com/gh/Brigad/ideal-image-loader
