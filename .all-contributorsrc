@@ -31,6 +31,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "aymericbeaumet",
+      "name": "Aymeric Beaumet",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/569243?v=4",
+      "profile": "https://aymericbeaumet.com",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }
