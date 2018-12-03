@@ -1,4 +1,5 @@
 const fs = require('fs');
+const nodePath = require('path');
 
 const fastStableStringify = require('fast-stable-stringify');
 // eslint-disable-next-line import/no-unresolved
@@ -36,33 +37,24 @@ const readFileAsync = (context, filename, warnOnMissingSrcset) =>
   });
 
 const getSource = (context, contentBuffer) => {
-  let content = contentBuffer.toString('utf8');
+  const content = contentBuffer.toString('utf8');
 
-  const contentIsUrlExport = /^module.exports = "data:(.*)base64,(.*)/.test(
+  const contentIsUrlExport = /^module.exports = "data:[^;]*;base64,/.test(
     content,
   );
-  const contentIsFileExport = /^module.exports = (.*)/.test(content);
-  let source = '';
-
   if (contentIsUrlExport) {
-    // eslint-disable-next-line prefer-destructuring
-    source = content.match(/^module.exports = (.*)/)[1];
-  } else {
-    if (!contentIsFileExport) {
-      content = fileLoader.call(context, contentBuffer);
-    }
-    // eslint-disable-next-line prefer-destructuring
-    source = content.match(/^module.exports = (.*);/)[1];
+    return content.replace('module.exports = ', '');
   }
 
-  return source;
+  const contentIsFileExport = content.startsWith('module.exports = ');
+  const loadedContent = contentIsFileExport
+    ? content
+    : fileLoader.call(context, contentBuffer);
+  return loadedContent.replace('module.exports = ', '');
 };
 
-const getExtensionFromPath = path =>
-  path
-    .split('.')
-    .slice(-1)[0]
-    .toLowerCase();
+const getExtensionFromPath = filepath =>
+  nodePath.extname(filepath).toLowerCase();
 
 const hash = str => xxHash.h32(fastStableStringify(str), 0).toString(16);
 
@@ -82,7 +74,7 @@ const processJPGPNG = (context, contentBuffer) => {
     ...(loaderUtils.getOptions(context) || {}),
   };
 
-  const enableLqip = ['jpg', 'jpeg'].includes(extension);
+  const enableLqip = ['.jpg', '.jpeg'].includes(extension);
   const enableBase64 = enableLqip && options.base64;
   const enablePalette = enableLqip && options.palette;
   const enableWebp = typeof options.webp === 'undefined' || !!options.webp;
@@ -90,8 +82,8 @@ const processJPGPNG = (context, contentBuffer) => {
 
   const paths = [
     path,
-    path.replace(`.${extension}`, `@2x.${extension}`),
-    path.replace(`.${extension}`, `@3x.${extension}`),
+    path.replace(`${extension}`, `@2x${extension}`),
+    path.replace(`${extension}`, `@3x${extension}`),
   ];
 
   const srcsetPromises = [
@@ -238,12 +230,15 @@ module.exports = function(contentBuffer) {
   const path = context.resourcePath;
   const extension = getExtensionFromPath(path);
 
-  if (['jpg', 'jpeg', 'png'].includes(extension)) {
-    processJPGPNG(context, contentBuffer);
-  } else if (extension === 'svg') {
-    processSVG(context, contentBuffer);
-  } else {
-    processOtherFormats(context, contentBuffer);
+  switch (extension) {
+    case '.jpg':
+    case '.jpeg':
+    case '.png':
+      return processJPGPNG(context, contentBuffer);
+    case '.svg':
+      return processSVG(context, contentBuffer);
+    default:
+      return processOtherFormats(context, contentBuffer);
   }
 };
 
