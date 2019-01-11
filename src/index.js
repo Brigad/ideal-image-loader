@@ -37,24 +37,33 @@ const readFileAsync = (context, filename, warnOnMissingSrcset) =>
   });
 
 const getSource = (context, contentBuffer) => {
-  const content = contentBuffer.toString('utf8');
+  let content = contentBuffer.toString('utf8');
 
   const contentIsUrlExport = /^module.exports = "data:[^;]*;base64,/.test(
     content,
   );
+  const contentIsFileExport = content.startsWith('module.exports = ');
+  let source = '';
+
   if (contentIsUrlExport) {
-    return content.replace('module.exports = ', '');
+    // eslint-disable-next-line prefer-destructuring
+    source = content.match(/^module.exports = (.*)/)[1];
+  } else {
+    if (!contentIsFileExport) {
+      content = fileLoader.call(context, contentBuffer);
+    }
+    // eslint-disable-next-line prefer-destructuring
+    source = content.match(/^module.exports = (.*);/)[1];
   }
 
-  const contentIsFileExport = content.startsWith('module.exports = ');
-  const loadedContent = contentIsFileExport
-    ? content
-    : fileLoader.call(context, contentBuffer);
-  return loadedContent.replace('module.exports = ', '');
+  return source;
 };
 
 const getExtensionFromPath = filepath =>
-  nodePath.extname(filepath).toLowerCase();
+  nodePath
+    .extname(filepath)
+    .replace('.', '')
+    .toLowerCase();
 
 const hash = str => xxHash.h32(fastStableStringify(str), 0).toString(16);
 
@@ -74,7 +83,7 @@ const processJPGPNG = (context, contentBuffer) => {
     ...(loaderUtils.getOptions(context) || {}),
   };
 
-  const enableLqip = ['.jpg', '.jpeg'].includes(extension);
+  const enableLqip = ['jpg', 'jpeg'].includes(extension);
   const enableBase64 = enableLqip && options.base64;
   const enablePalette = enableLqip && options.palette;
   const enableWebp = typeof options.webp === 'undefined' || !!options.webp;
@@ -82,8 +91,8 @@ const processJPGPNG = (context, contentBuffer) => {
 
   const paths = [
     path,
-    path.replace(`${extension}`, `@2x${extension}`),
-    path.replace(`${extension}`, `@3x${extension}`),
+    path.replace(`.${extension}`, `@2x.${extension}`),
+    path.replace(`.${extension}`, `@3x.${extension}`),
   ];
 
   const srcsetPromises = [
@@ -231,11 +240,11 @@ module.exports = function(contentBuffer) {
   const extension = getExtensionFromPath(path);
 
   switch (extension) {
-    case '.jpg':
-    case '.jpeg':
-    case '.png':
+    case 'jpg':
+    case 'jpeg':
+    case 'png':
       return processJPGPNG(context, contentBuffer);
-    case '.svg':
+    case 'svg':
       return processSVG(context, contentBuffer);
     default:
       return processOtherFormats(context, contentBuffer);
