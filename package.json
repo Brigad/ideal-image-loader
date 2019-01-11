@@ -1,6 +1,6 @@
 {
   "name": "@brigad/ideal-image-loader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A loader for webpack which handles 2x/3x/webp and works well with gatsby-image and react-ideal-image",
   "engines": {
     "node": ">= 6.9.0"
