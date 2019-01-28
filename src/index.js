@@ -83,7 +83,7 @@ const processJPGPNG = (context, contentBuffer) => {
     ...(loaderUtils.getOptions(context) || {}),
   };
 
-  const enableLqip = ['jpg', 'jpeg'].includes(extension);
+  const enableLqip = ['jpg', 'jpeg', 'png'].includes(extension);
   const enableBase64 = enableLqip && options.base64;
   const enablePalette = enableLqip && options.palette;
   const enableWebp = typeof options.webp === 'undefined' || !!options.webp;
