@@ -6,7 +6,7 @@
 [![version][version-badge]][package]
 [![downloads][downloads-badge]][package]
 [![MIT License][license-badge]][license]
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
 [![Code of Conduct][coc-badge]][coc]
 [![code style: prettier][prettier-badge]][prettier]
@@ -205,8 +205,8 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars1.githubusercontent.com/u/15089053?v=4" width="100px;"/><br /><sub><b>Adrien HARNAY</b></sub>](https://adrien.harnay.me)<br />[📝](#blog-adrienharnay "Blogposts") [💻](https://github.com/adrienharnay/@brigad/ideal-image-loader/commits?author=adrienharnay "Code") [🎨](#design-adrienharnay "Design") [📖](https://github.com/adrienharnay/@brigad/ideal-image-loader/commits?author=adrienharnay "Documentation") [💡](#example-adrienharnay "Examples") [🤔](#ideas-adrienharnay "Ideas, Planning, & Feedback") | [<img src="https://avatars1.githubusercontent.com/u/6181446?v=4" width="100px;"/><br /><sub><b>Thibault Malbranche</b></sub>](https://twitter.com/titozzz)<br />[🤔](#ideas-Titozzz "Ideas, Planning, & Feedback") | [<img src="https://avatars1.githubusercontent.com/u/569243?v=4" width="100px;"/><br /><sub><b>Aymeric Beaumet</b></sub>](https://aymericbeaumet.com)<br />[💻](https://github.com/adrienharnay/@brigad/ideal-image-loader/commits?author=aymericbeaumet "Code") |
-| :---: | :---: | :---: |
+| [<img src="https://avatars1.githubusercontent.com/u/15089053?v=4" width="100px;"/><br /><sub><b>Adrien HARNAY</b></sub>](https://adrien.harnay.me)<br />[📝](#blog-adrienharnay "Blogposts") [💻](https://github.com/adrienharnay/@brigad/ideal-image-loader/commits?author=adrienharnay "Code") [🎨](#design-adrienharnay "Design") [📖](https://github.com/adrienharnay/@brigad/ideal-image-loader/commits?author=adrienharnay "Documentation") [💡](#example-adrienharnay "Examples") [🤔](#ideas-adrienharnay "Ideas, Planning, & Feedback") | [<img src="https://avatars1.githubusercontent.com/u/6181446?v=4" width="100px;"/><br /><sub><b>Thibault Malbranche</b></sub>](https://twitter.com/titozzz)<br />[🤔](#ideas-Titozzz "Ideas, Planning, & Feedback") | [<img src="https://avatars1.githubusercontent.com/u/569243?v=4" width="100px;"/><br /><sub><b>Aymeric Beaumet</b></sub>](https://aymericbeaumet.com)<br />[💻](https://github.com/adrienharnay/@brigad/ideal-image-loader/commits?author=aymericbeaumet "Code") | [<img src="https://avatars2.githubusercontent.com/u/1382472?v=4" width="100px;"/><br /><sub><b>Cheng Gu</b></sub>](https://www.guchengf.me)<br />[💻](https://github.com/adrienharnay/@brigad/ideal-image-loader/commits?author=gucheen "Code") |
+| :---: | :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
