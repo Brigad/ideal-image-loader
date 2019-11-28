@@ -59,13 +59,13 @@ const getSource = (context, contentBuffer) => {
   return source;
 };
 
-const getExtensionFromPath = (filepath) =>
+const getExtensionFromPath = filepath =>
   nodePath
     .extname(filepath)
     .replace('.', '')
     .toLowerCase();
 
-const hash = (str) => xxHash.h32(fastStableStringify(str), 0).toString(16);
+const hash = str => xxHash.h32(fastStableStringify(str), 0).toString(16);
 
 const processOtherFormats = (context, contentBuffer) => {
   const callback = context.async();
