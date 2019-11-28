@@ -21,7 +21,7 @@ const defaultOptions = {
 };
 
 const readFileAsync = (context, filename, warnOnMissingSrcset) =>
-  new Promise(resolve => {
+  new Promise((resolve) => {
     fs.readFile(filename, (err, data) => {
       if (err) {
         if (warnOnMissingSrcset) {
@@ -59,13 +59,13 @@ const getSource = (context, contentBuffer) => {
   return source;
 };
 
-const getExtensionFromPath = filepath =>
+const getExtensionFromPath = (filepath) =>
   nodePath
     .extname(filepath)
     .replace('.', '')
     .toLowerCase();
 
-const hash = str => xxHash.h32(fastStableStringify(str), 0).toString(16);
+const hash = (str) => xxHash.h32(fastStableStringify(str), 0).toString(16);
 
 const processOtherFormats = (context, contentBuffer) => {
   const callback = context.async();
@@ -106,7 +106,7 @@ const processJPGPNG = (context, contentBuffer) => {
   ];
 
   Promise.all(srcsetPromises)
-    .then(srcsetData => {
+    .then((srcsetData) => {
       const lqipWebpPromises = srcsetData.reduce(
         (result, data, index) => [
           ...result,
@@ -122,7 +122,7 @@ const processJPGPNG = (context, contentBuffer) => {
       );
 
       Promise.all(lqipWebpPromises)
-        .then(lqipWebpData => {
+        .then((lqipWebpData) => {
           const srcset = paths.map((_, index) => {
             const lqipWebpIndex = index * 3;
 
@@ -177,13 +177,13 @@ const processJPGPNG = (context, contentBuffer) => {
 
           callback(null, result);
         })
-        .catch(error => {
+        .catch((error) => {
           // eslint-disable-next-line no-console
           console.error(error);
           callback(error);
         });
     })
-    .catch(error => {
+    .catch((error) => {
       // eslint-disable-next-line no-console
       console.error(error);
       callback(error);
@@ -218,12 +218,12 @@ const processSVG = (context, contentBuffer) => {
         ],
       }),
     })
-    .then(data => {
+    .then((data) => {
       const result = `export default ${getSource(context, data)}`;
 
       callback(null, result);
     })
-    .catch(error => {
+    .catch((error) => {
       // eslint-disable-next-line no-console
       console.error(error);
       callback(error);
