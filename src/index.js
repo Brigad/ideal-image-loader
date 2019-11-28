@@ -39,21 +39,21 @@ const readFileAsync = (context, filename, warnOnMissingSrcset) =>
 const getSource = (context, contentBuffer) => {
   let content = contentBuffer.toString('utf8');
 
-  const contentIsUrlExport = /^module.exports = "data:[^;]*;base64,/.test(
+  const contentIsUrlExport = /^export default "data:[^;]*;base64,/.test(
     content,
   );
-  const contentIsFileExport = content.startsWith('module.exports = ');
+  const contentIsFileExport = content.startsWith('export default ');
   let source = '';
 
   if (contentIsUrlExport) {
     // eslint-disable-next-line prefer-destructuring
-    source = content.match(/^module.exports = (.*)/)[1];
+    source = content.match(/^export default (.*)/)[1];
   } else {
     if (!contentIsFileExport) {
       content = fileLoader.call(context, contentBuffer);
     }
     // eslint-disable-next-line prefer-destructuring
-    source = content.match(/^module.exports = (.*);/)[1];
+    source = content.match(/^export default (.*);/)[1];
   }
 
   return source;
@@ -69,7 +69,7 @@ const hash = str => xxHash.h32(fastStableStringify(str), 0).toString(16);
 
 const processOtherFormats = (context, contentBuffer) => {
   const callback = context.async();
-  const result = `module.exports = ${getSource(context, contentBuffer)}`;
+  const result = `export default ${getSource(context, contentBuffer)}`;
 
   callback(null, result);
 };
@@ -163,7 +163,7 @@ const processJPGPNG = (context, contentBuffer) => {
             };
           });
 
-          const result = `module.exports = {${srcset
+          const result = `export default {${srcset
             .map((data, index) =>
               data
                 ? `x${index + 1}: { ${Object.entries(data)
@@ -219,7 +219,7 @@ const processSVG = (context, contentBuffer) => {
       }),
     })
     .then((data) => {
-      const result = `module.exports = ${getSource(context, data)}`;
+      const result = `export default ${getSource(context, data)}`;
 
       callback(null, result);
     })
