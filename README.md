@@ -120,6 +120,8 @@ And run `webpack` via your preferred method.
 
 A fully-working component example is available [here](./examples/Image.js) (based on [gatsby-image][gatsby-image]), feel free to copy it and to adapt it to your needs!
 
+A simple VueJS project example is also available [there](https://github.com/GauthierPLM/vue-ideal-image-loader).
+
 ## Problem
 
 At Brigad, we have been looking for a solution to lazy-load images in a way that would feel good for the user and the developer. We also wanted our images to be as lightweight as possible for a given screen resolution. We tried to use [gatsby-image][gatsby-image] (but without using Gatsby) and [react-ideal-image][react-ideal-image], but we needed a loader to help us load our images without manually converting all of them to Webp, and manually importing each variation.
